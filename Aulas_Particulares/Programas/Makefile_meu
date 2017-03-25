@@ -1,0 +1,30 @@
+#Universidade Federal do Rio de Janeiro
+#Escola Politecnica
+#Departamento de Eletronica e de Computacao
+#EEL270 - Computacao II - Turma 2016/2
+#Prof. Marcelo Luiz Drumond Lanza
+#Autor: Felipe Claudio da Silva Santos
+#
+#$Author$
+#$Date$ 
+#$Log$
+
+CC = gcc
+LD = gcc
+
+CFLAGS = -Wall
+LFLAGS = -Wall
+
+EXEC = aula0101
+OBJS = primeiroPrograma.o
+
+
+#Regra implicita
+.c.o:
+	$(CC)	$(CFLAGS)	-c	$<
+
+meuPrimeiro:	$(OBJS)
+	$(LD)	$(LFLAGS)	-o 	$(EXEC)	$(OBJS)
+
+clean:
+	rm -f $(EXEC)	$(OBJS)	
