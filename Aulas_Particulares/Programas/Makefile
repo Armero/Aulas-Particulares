@@ -6,20 +6,25 @@ LFLAGS = -Wall
 ALL = $(EXECS)
 
 EXECS = $(PRIMEIROPROGRAMAEXECS)\
-				$(PONTEIROSEXECS)
+				$(PONTEIROSEXECS)\
+				$(SENOEXECS)\
+				$(TRATAMENTOSNUMEROSEXECS)
 
 PRIMEIROPROGRAMAEXECS = primeiroPrograma
 PONTEIROSEXECS = 				ponteiros
 SENOEXECS =							seno
+TRATAMENTOSNUMEROSEXECS = tratamentosNumeros
 
 OBJS=	$(PRIMEIROPROGRAMAOBJS)\
-			$(PONTEIROSOBJS)
+			$(PONTEIROSOBJS)\
+			$(SENOOBJS)\
+			$(TRATAMENTOSNUMEROSOBJS)
 
 PRIMEIROPROGRAMAOBJS = 	primeiroPrograma.o
 PONTEIROSOBJS = 				ponteiros.o
 SENOOBJS = 							seno.o
+TRATAMENTOSNUMEROSOBJS = tratamentosNumeros.o
 
-LIBMATH = 
 
 .c.o:
 	$(CC)	$(CFLAGS)	-c	$<
@@ -34,6 +39,9 @@ ponteiros: $(PONTEIROSOBJS)
 
 seno:	$(SENOOBJS)
 	$(LD)	$(LFLAGS)	-o 	$@	$(SENOOBJS)	-lm
+
+tratamentosNumeros: $(TRATAMENTOSNUMEROSOBJS)
+	$(LD)	$(LFLAGS)	-o 	$@ 	$(TRATAMENTOSNUMEROSOBJS)
 
 clean:
 	rm	-rf 	$(OBJS)	$(EXECS)
